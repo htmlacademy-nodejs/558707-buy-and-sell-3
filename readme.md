@@ -1,7 +1,7 @@
 # Учебный проект «Куплю. Продам» [![Build status][travis-image]][travis-url]
 
 * Студент: [Никита Королюк](https://up.htmlacademy.ru/nodejs/3/user/558707).
-* Наставник: `Неизвестно`.
+* Наставник: [Николай Мендяев](https://htmlacademy.ru/profile/id1339341).
 
 ---
 
