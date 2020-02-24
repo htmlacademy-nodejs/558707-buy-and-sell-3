@@ -10,10 +10,9 @@ const {
 } = require(`../constants`);
 
 const userArguments = process.argv.slice(USER_ARGV_INDEX);
-const [userCommand] = userArguments;
-const userMocksCount = userArguments.slice(1);
+const [userCommand, userArgvCount] = userArguments;
 
-if (userCommand === `--generate` && userMocksCount > MAX_MOCK_COUNT) {
+if (userCommand === `--generate` && userArgvCount > MAX_MOCK_COUNT) {
   console.info(`Не больше ${MAX_MOCK_COUNT} объявлений`);
   process.exit(ExitCode.error);
 }
@@ -23,4 +22,4 @@ if (userArguments.length === 0 || !Cli[userCommand]) {
   process.exit(ExitCode.success);
 }
 
-Cli[userCommand].run(userMocksCount);
+Cli[userCommand].run(userArgvCount);
