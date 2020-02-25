@@ -1,8 +1,13 @@
 'use strict';
 
 const {getRandomInt, shuffle} = require(`../../utils`);
+const {ExitCode} = require(`../../constants`);
 
-const DEFAULT_COUNT = 1;
+const Counts = {
+  default: 1,
+  max: 1000,
+};
+
 const FILE_NAME = `mock.json`;
 
 const TITLES = [
@@ -60,7 +65,7 @@ const PictureRestrict = {
   max: 16,
 };
 
-const getPictureFileName = (number) => number > 10 ? `item${number}.jpg` : `item0${number}.jpg`;
+const getPictureFileName = (number) => `item${`${number}`.padStart(2, 0)}.jpg`;
 
 const generateOffers = (count) => (
   Array(count).fill({}).map(() => ({
@@ -69,25 +74,24 @@ const generateOffers = (count) => (
     description: shuffle(SENTENCES).slice(1, 5).join(` `),
     type: Object.keys(OfferType)[Math.floor(Math.random() * Object.keys(OfferType).length)],
     sum: getRandomInt(SumRestrict.min, SumRestrict.max),
-    category: [CATEGORIES[getRandomInt(0, CATEGORIES.length - 1)]],
+    category: shuffle(CATEGORIES).slice(0, getRandomInt(1, CATEGORIES.length - 1)),
   }))
 );
 
 module.exports = {
   name: `--generate`,
   run(args) {
-    const [count] = args;
-    const countOffer = Number.parseInt(count, 10) || DEFAULT_COUNT;
+    const countOffer = Number.parseInt(args, 10) || Counts.default;
+
+    if (countOffer > Counts.max) {
+      console.info(`Не больше ${Counts.max} объявлений`);
+      process.exit(ExitCode.error);
+    }
+
     const content = JSON.stringify(generateOffers(countOffer));
 
     const fs = require(`fs`);
 
-    fs.writeFile(FILE_NAME, content, (err) => {
-      if (err) {
-        return console.error(`Can't write data to file...`);
-      }
-
-      return console.info(`Operation success. File created.`);
-    });
+    fs.writeFileSync(FILE_NAME, content);
   }
 };

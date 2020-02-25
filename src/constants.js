@@ -1,7 +1,5 @@
 'use strict';
 
-module.exports.MAX_MOCK_COUNT = 1000;
-
 module.exports.DEFAULT_COMMAND = `--help`;
 
 module.exports.USER_ARGV_INDEX = 2;
