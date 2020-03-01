@@ -1,11 +1,14 @@
 'use strict';
 
+const {writeFileSync} = require(`fs`);
+
 const {getRandomInt, shuffle} = require(`../../utils`);
+
 const {ExitCode} = require(`../../constants`);
 
-const Counts = {
-  default: 1,
-  max: 1000,
+const OffersCount = {
+  DEFAULT: 1,
+  MAX: 1000,
 };
 
 const FILE_NAME = `mock.json`;
@@ -50,19 +53,19 @@ const CATEGORIES = [
 ];
 
 const OfferType = {
-  offer: `offer`,
-  sale: `sale`,
+  OFFER: `offer`,
+  SALE: `sale`,
 };
 
 
 const SumRestrict = {
-  min: 1000,
-  max: 100000,
+  MIN: 1000,
+  MAX: 100000,
 };
 
 const PictureRestrict = {
-  min: 1,
-  max: 16,
+  MIN: 1,
+  MAX: 16,
 };
 
 const getPictureFileName = (number) => `item${`${number}`.padStart(2, `0`)}.jpg`;
@@ -70,10 +73,10 @@ const getPictureFileName = (number) => `item${`${number}`.padStart(2, `0`)}.jpg`
 const generateOffers = (count) => (
   Array(count).fill({}).map(() => ({
     title: TITLES[getRandomInt(0, TITLES.length - 1)],
-    picture: getPictureFileName(getRandomInt(PictureRestrict.min, PictureRestrict.max)),
+    picture: getPictureFileName(getRandomInt(PictureRestrict.MIN, PictureRestrict.MAX)),
     description: shuffle(SENTENCES).slice(1, 5).join(` `),
     type: Object.keys(OfferType)[Math.floor(Math.random() * Object.keys(OfferType).length)],
-    sum: getRandomInt(SumRestrict.min, SumRestrict.max),
+    sum: getRandomInt(SumRestrict.MIN, SumRestrict.MAX),
     category: shuffle(CATEGORIES).slice(0, getRandomInt(1, CATEGORIES.length - 1)),
   }))
 );
@@ -81,17 +84,15 @@ const generateOffers = (count) => (
 module.exports = {
   name: `--generate`,
   run(args) {
-    const countOffer = Number.parseInt(args, 10) || Counts.default;
+    const count = Number.parseInt(args, 10) || OffersCount.DEFAULT;
 
-    if (countOffer > Counts.max) {
-      console.info(`Не больше ${Counts.max} объявлений`);
+    if (count > OffersCount.MAX) {
+      console.info(`Не больше ${OffersCount.MAX} объявлений`);
       process.exit(ExitCode.error);
     }
 
-    const content = JSON.stringify(generateOffers(countOffer));
+    const content = JSON.stringify(generateOffers(count));
 
-    const fs = require(`fs`);
-
-    fs.writeFileSync(FILE_NAME, content);
+    writeFileSync(FILE_NAME, content);
   }
 };
