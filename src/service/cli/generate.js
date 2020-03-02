@@ -4,7 +4,7 @@ const {writeFileSync} = require(`fs`);
 
 const {getRandomInt, shuffle} = require(`../../utils`);
 
-const {ExitCode} = require(`../../constants`);
+const {ExitCode: {ERROR}, Command: {GENERATE}} = require(`../../constants`);
 
 const OffersCount = {
   DEFAULT: 1,
@@ -82,13 +82,13 @@ const generateOffers = (count) => (
 );
 
 module.exports = {
-  name: `--generate`,
+  name: GENERATE,
   run(args) {
     const count = Number.parseInt(args, 10) || OffersCount.DEFAULT;
 
     if (count > OffersCount.MAX) {
       console.info(`Не больше ${OffersCount.MAX} объявлений`);
-      process.exit(ExitCode.error);
+      process.exit(ERROR);
     }
 
     const content = JSON.stringify(generateOffers(count));
