@@ -1,10 +1,9 @@
 'use strict';
 
-const {writeFileSync} = require(`fs`);
+const {writeFile} = require(`fs`).promises;
 
-const {getRandomInt, shuffle} = require(`../../utils`);
-
-const {ExitCode: {ERROR}, Command: {GENERATE}} = require(`../../constants`);
+const {getRandomInt, shuffle, logger} = require(`../../utils`);
+const {ExitCode, Command} = require(`../../constants`);
 
 const OffersCount = {
   DEFAULT: 1,
@@ -82,17 +81,24 @@ const generateOffers = (count) => (
 );
 
 module.exports = {
-  name: GENERATE,
-  run(args) {
-    const count = Number.parseInt(args, 10) || OffersCount.DEFAULT;
+  name: Command.GENERATE,
+  async run(count) {
+    const formattedCount = Number.parseInt(count, 10) || OffersCount.DEFAULT;
 
-    if (count > OffersCount.MAX) {
-      console.info(`Не больше ${OffersCount.MAX} объявлений`);
-      process.exit(ERROR);
+    if (formattedCount > OffersCount.MAX) {
+      logger.showError(`Не больше ${OffersCount.MAX} объявлений`);
+      process.exit(ExitCode.ERROR);
     }
 
-    const content = JSON.stringify(generateOffers(count));
+    const content = JSON.stringify(generateOffers(formattedCount));
 
-    writeFileSync(FILE_NAME, content);
+    try {
+      await writeFile(FILE_NAME, content);
+      logger.showSuccess(`Operation success. File created.`);
+      process.exit(ExitCode.SUCCESS);
+    } catch (err) {
+      logger.showError(`Can't write data to file...`);
+      process.exit(ExitCode.ERROR);
+    }
   }
 };
