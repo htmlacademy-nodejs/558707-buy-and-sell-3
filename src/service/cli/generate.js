@@ -83,7 +83,7 @@ const generateOffers = (count) => (
 module.exports = {
   name: Command.GENERATE,
   async run(count) {
-    const formattedCount = Number.parseInt(count, 10) || OffersCount.DEFAULT;
+    const formattedCount = parseInt(count, 10) || OffersCount.DEFAULT;
 
     if (formattedCount > OffersCount.MAX) {
       logger.showError(`Не больше ${OffersCount.MAX} объявлений`);
