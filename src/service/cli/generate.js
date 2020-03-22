@@ -3,14 +3,12 @@
 const {writeFile, readFile} = require(`fs`).promises;
 
 const {getRandomInt, shuffle, logger} = require(`../../utils`);
-const {ExitCode, Command} = require(`../../constants`);
+const {ExitCode, Command, FILE_NAME} = require(`../../constants`);
 
 const OffersCount = {
   DEFAULT: 1,
   MAX: 1000,
 };
-
-const FILE_NAME = `mock.json`;
 
 const OfferType = {
   OFFER: `offer`,
