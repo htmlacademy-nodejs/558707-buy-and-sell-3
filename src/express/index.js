@@ -9,7 +9,7 @@ const myRoutes = require(`./routes/my`);
 const offersRoutes = require(`./routes/offers`);
 const searchRoutes = require(`./routes/search`);
 
-const DEFAULT_PORT = 8080;
+const DEFAULT_PORT = process.env.PORT || 8080;
 
 const app = express();
 
