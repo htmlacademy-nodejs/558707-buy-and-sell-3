@@ -13,6 +13,9 @@ const DEFAULT_PORT = process.env.PORT || 8080;
 
 const app = express();
 
+app.set(`view engine`, `pug`);
+app.set(`views`, `./templates`);
+
 app.use(`/`, indexRoutes);
 app.use(`/register`, registerRoutes);
 app.use(`/login`, loginRoutes);
