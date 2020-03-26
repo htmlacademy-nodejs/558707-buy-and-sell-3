@@ -2,6 +2,8 @@
 
 const express = require(`express`);
 
+const {join} = require(`path`);
+
 const indexRoutes = require(`./routes/index`);
 const registerRoutes = require(`./routes/register`);
 const loginRoutes = require(`./routes/login`);
@@ -10,11 +12,14 @@ const offersRoutes = require(`./routes/offers`);
 const searchRoutes = require(`./routes/search`);
 
 const DEFAULT_PORT = process.env.PORT || 8080;
+const PUBLIC_DIR = `public`;
 
 const app = express();
 
+
+app.use(express.static(PUBLIC_DIR));
 app.set(`view engine`, `pug`);
-app.set(`views`, `./templates`);
+app.set(`views`, join(__dirname, `templates`));
 
 app.use(`/`, indexRoutes);
 app.use(`/register`, registerRoutes);
