@@ -1,5 +1,9 @@
 extends layouts/layout
 
+block vars
+    - const bodyClass= `body-server`
+    - const mainClass= ``
+
 block content
     section.error
         h1.error__title 500
@@ -16,5 +20,5 @@ block content
             div.search__icon
             div.search__close-btn
         a.error__logo.logo(href="main.html")
-            img(src="img/logo.svg", width="179", height="34", alt="Логотип Куплю Продам")
+            img(src="/img/logo.svg", width="179", height="34", alt="Логотип Куплю Продам")
 

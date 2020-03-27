@@ -12,7 +12,7 @@ const offersRoutes = require(`./routes/offers`);
 const searchRoutes = require(`./routes/search`);
 
 const DEFAULT_PORT = process.env.PORT || 8080;
-const PUBLIC_DIR = `public`;
+const PUBLIC_DIR = join(__dirname, `public`);
 
 const app = express();
 
