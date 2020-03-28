@@ -7,7 +7,7 @@ const {logger} = require(`../../../utils`);
 
 const offersRoutes = require(`./routes/offers`);
 
-const DEFAULT_PORT = 3000;
+const DEFAULT_PORT = process.env.PORT || 3000;
 
 const app = express();
 
