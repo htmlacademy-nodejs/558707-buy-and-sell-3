@@ -5,9 +5,9 @@ const {Router} = require(`express`);
 const {readFile} = require(`fs`).promises;
 const {join} = require(`path`);
 
-const {FILE_NAME} = require(`../../../../constants`);
+const {FILE_NAME, HttpCode} = require(`../../../../constants`);
 
-const NOT_FOUND_MESSAGE = [];
+const EMPTY_FILE_MESSAGE = [];
 
 const offersRouter = new Router();
 
@@ -15,9 +15,9 @@ offersRouter.get(`/`, async (req, res) => {
   try {
     const fileContent = await readFile(join(__dirname, `..`, `..`, `..`, `..`, `..`, FILE_NAME), `utf-8`);
 
-    res.json(fileContent);
+    res.json(fileContent || EMPTY_FILE_MESSAGE);
   } catch (err) {
-    res.send(NOT_FOUND_MESSAGE);
+    res.status(HttpCode.INTERNAL_SERVER_ERROR).send(err);
   }
 });
 

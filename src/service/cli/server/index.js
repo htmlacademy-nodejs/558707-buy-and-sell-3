@@ -2,7 +2,7 @@
 
 const express = require(`express`);
 
-const {Command} = require(`../../../constants`);
+const {Command, HttpCode} = require(`../../../constants`);
 const {logger} = require(`../../../utils`);
 
 const offersRoutes = require(`./routes/offers`);
@@ -14,6 +14,10 @@ const app = express();
 app.use(express.json());
 
 app.use(`/offers`, offersRoutes);
+
+app.use((req, res) => res
+    .status(HttpCode.NOT_FOUND)
+    .send(`Not found`));
 
 module.exports = {
   name: Command.SERVER,
