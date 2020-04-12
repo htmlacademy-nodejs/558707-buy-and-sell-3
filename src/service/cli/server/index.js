@@ -6,6 +6,8 @@ const {Command, HttpCode} = require(`../../../constants`);
 const {logger} = require(`../../../utils`);
 
 const offersRoutes = require(`./routes/offers`);
+const categoriesRoutes = require(`./routes/categories`);
+const searchRoutes = require(`./routes/search`);
 
 const DEFAULT_PORT = process.env.PORT || 3000;
 
@@ -14,6 +16,8 @@ const app = express();
 app.use(express.json());
 
 app.use(`/offers`, offersRoutes);
+app.use(`/categories`, categoriesRoutes);
+app.use(`/search`, searchRoutes);
 
 app.use((req, res) => res
     .status(HttpCode.NOT_FOUND)

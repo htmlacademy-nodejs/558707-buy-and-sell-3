@@ -47,12 +47,13 @@ const getPictureFileName = (number) => `item${`${number}`.padStart(2, `0`)}.jpg`
 
 const generateOffers = (count, titles, sentences, categories, comments) => (
   Array(count).fill({}).map(() => ({
+    id: nanoid.nanoid(5),
     title: titles[getRandomInt(0, titles.length - 1)],
     picture: getPictureFileName(getRandomInt(PictureRestrict.MIN, PictureRestrict.MAX)),
     description: shuffle(sentences).slice(1, 5).join(` `),
     type: Object.keys(OfferType)[Math.floor(Math.random() * Object.keys(OfferType).length)],
     sum: getRandomInt(SumRestrict.MIN, SumRestrict.MAX),
-    category: shuffle(sentences).slice(0, getRandomInt(1, categories.length - 1)),
+    category: shuffle(categories).slice(0, getRandomInt(1, categories.length - 1)),
     comments: Array(getRandomInt(1, 3)).fill({}).map(() => ({
       id: nanoid.nanoid(5),
       text: shuffle(comments).slice(1, 3).join(` `),
