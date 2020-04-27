@@ -14,10 +14,11 @@ const DEFAULT_PORT = process.env.PORT || 3000;
 const app = express();
 
 app.use(express.json());
+app.use(express.urlencoded({extended: false}));
 
-app.use(`/offers`, offersRoutes);
-app.use(`/categories`, categoriesRoutes);
-app.use(`/search`, searchRoutes);
+app.use(`/api/offers`, offersRoutes);
+app.use(`/api/categories`, categoriesRoutes);
+app.use(`/api/search`, searchRoutes);
 
 app.use((req, res) => res
     .status(HttpCode.NOT_FOUND)
