@@ -12,9 +12,9 @@ const getOffers = async (req, res) => {
   try {
     const fileContent = await handlers.getContent(FILE_PATH, false);
 
-    res.json(fileContent);
+    res.status(HttpCode.OK).json(fileContent);
   } catch (err) {
-    res.sendStatus(HttpCode.INTERNAL_SERVER_ERROR).send(err.message);
+    res.status(HttpCode.INTERNAL_SERVER_ERROR).send(err.message);
   }
 };
 
@@ -36,9 +36,9 @@ const postOffer = async (req, res) => {
     handlers.addElementToContent(fileContent, req.body);
     await handlers.rewriteContent(FILE_NAME, fileContent);
 
-    res.sendStatus(HttpCode.OK);
+    res.status(HttpCode.OK).send(req.body);
   } catch (err) {
-    res.send(err.message);
+    res.status(HttpCode.BAD_REQUEST).send(err.message);
   }
 };
 
@@ -49,9 +49,9 @@ const putOffer = async (req, res) => {
     handlers.updateElementContent(offer, req.body);
     await handlers.rewriteContent(FILE_NAME, fileContent);
 
-    res.sendStatus(HttpCode.OK);
+    res.status(HttpCode.OK).send(req.body);
   } catch (err) {
-    res.send(err.message);
+    res.status(HttpCode.BAD_REQUEST).send(err.message);
   }
 };
 
@@ -62,9 +62,9 @@ const deleteOffer = async (req, res) => {
     handlers.removeElementFromContent(fileContent, offer);
     await handlers.rewriteContent(FILE_NAME, fileContent);
 
-    res.sendStatus(HttpCode.OK);
+    res.status(HttpCode.OK).send(req.body);
   } catch (err) {
-    res.send(err.message);
+    res.status(HttpCode.BAD_REQUEST).send(err.message);
   }
 };
 

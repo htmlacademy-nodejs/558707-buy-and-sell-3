@@ -1,28 +1,10 @@
 "use strict";
 
-const express = require(`express`);
-
-const {Command, HttpCode} = require(`../../../constants`);
+const app = require(`./server`);
+const {Command} = require(`../../../constants`);
 const {logger} = require(`../../../utils`);
 
-const offersRoutes = require(`./routes/offers`);
-const categoriesRoutes = require(`./routes/categories`);
-const searchRoutes = require(`./routes/search`);
-
 const DEFAULT_PORT = process.env.PORT || 3000;
-
-const app = express();
-
-app.use(express.json());
-app.use(express.urlencoded({extended: false}));
-
-app.use(`/api/offers`, offersRoutes);
-app.use(`/api/categories`, categoriesRoutes);
-app.use(`/api/search`, searchRoutes);
-
-app.use((req, res) => res
-    .status(HttpCode.NOT_FOUND)
-    .send(`Not found`));
 
 module.exports = {
   name: Command.SERVER,
