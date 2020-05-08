@@ -1,6 +1,7 @@
 'use strict';
 
 const chalk = require(`chalk`);
+const {resolve} = require(`path`);
 
 const getRandomInt = (min, max) => {
   min = Math.ceil(min);
@@ -24,8 +25,15 @@ const logger = {
   showVersion: (msg) => console.info(chalk.blue(msg)),
 };
 
+const logsPath = resolve(__dirname, `service`, `logs.log`);
+const pinoLogger = require(`pino`)({
+  name: `pino-and-express`,
+  level: process.env.LOG_LEVEL || `info`
+}, logsPath);
+
 module.exports = {
   getRandomInt,
   shuffle,
   logger,
+  pinoLogger,
 };

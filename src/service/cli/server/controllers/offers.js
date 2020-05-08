@@ -3,6 +3,7 @@
 const {join} = require(`path`);
 
 const handlers = require(`../utils`);
+const {pinoLogger} = require(`../../../../utils`);
 const {FILE_NAME, HttpCode} = require(`../../../../constants`);
 
 const FILE_PATH = join(__dirname, `..`, `..`, `..`, `..`, `..`, FILE_NAME);
@@ -15,6 +16,7 @@ const getOffers = async (req, res) => {
     res.status(HttpCode.OK).json(fileContent);
   } catch (err) {
     res.status(HttpCode.INTERNAL_SERVER_ERROR).send(err.message);
+    pinoLogger.error(`Error: ${err.message}`);
   }
 };
 
@@ -23,9 +25,10 @@ const getOffer = async (req, res) => {
     const fileContent = await handlers.getContent(FILE_PATH);
     const offer = handlers.getElementById(fileContent, req.params.offerId);
 
-    res.json(offer);
+    res.status(HttpCode.OK).json(offer);
   } catch (err) {
-    res.send(err.message);
+    res.status(HttpCode.BAD_REQUEST).send(err.message);
+    pinoLogger.error(`Error: ${err.message}`);
   }
 };
 
@@ -39,6 +42,7 @@ const postOffer = async (req, res) => {
     res.status(HttpCode.OK).send(req.body);
   } catch (err) {
     res.status(HttpCode.BAD_REQUEST).send(err.message);
+    pinoLogger.error(`Error: ${err.message}`);
   }
 };
 
@@ -52,6 +56,7 @@ const putOffer = async (req, res) => {
     res.status(HttpCode.OK).send(req.body);
   } catch (err) {
     res.status(HttpCode.BAD_REQUEST).send(err.message);
+    pinoLogger.error(`Error: ${err.message}`);
   }
 };
 
@@ -65,6 +70,7 @@ const deleteOffer = async (req, res) => {
     res.status(HttpCode.OK).send(req.body);
   } catch (err) {
     res.status(HttpCode.BAD_REQUEST).send(err.message);
+    pinoLogger.error(`Error: ${err.message}`);
   }
 };
 

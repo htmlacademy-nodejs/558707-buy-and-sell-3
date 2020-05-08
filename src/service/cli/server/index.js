@@ -2,7 +2,7 @@
 
 const app = require(`./server`);
 const {Command} = require(`../../../constants`);
-const {logger} = require(`../../../utils`);
+const {pinoLogger} = require(`../../../utils`);
 
 const DEFAULT_PORT = process.env.PORT || 3000;
 
@@ -11,6 +11,7 @@ module.exports = {
   run(port) {
     const formattedPort = parseInt(port, 10) || DEFAULT_PORT;
 
-    app.listen(formattedPort, (err) => err ? logger.showError(`Ошибка при создании сервера`, err) : logger.showSuccess(`Ожидаю соединений на ${formattedPort}`));
+    app.listen(formattedPort, () => pinoLogger.info(`Server start on ${formattedPort}`))
+        .on(`error`, (err) => pinoLogger.error(`Server can't start. Error: ${err}`));
   },
 };

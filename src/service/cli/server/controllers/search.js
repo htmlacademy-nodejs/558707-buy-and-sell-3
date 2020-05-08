@@ -3,7 +3,8 @@
 const {join} = require(`path`);
 
 const handlers = require(`../utils`);
-const {FILE_NAME} = require(`../../../../constants`);
+const {pinoLogger} = require(`../../../../utils`);
+const {FILE_NAME, HttpCode} = require(`../../../../constants`);
 
 const FILE_PATH = join(__dirname, `..`, `..`, `..`, `..`, `..`, FILE_NAME);
 
@@ -12,9 +13,10 @@ const getIndex = async (req, res) => {
     const fileContent = await handlers.getContent(FILE_PATH);
     const offers = fileContent.filter((offer) => new RegExp(req.query.query.toLowerCase()).test(offer.title.toLowerCase()));
 
-    res.json(offers);
+    res.status(HttpCode.OK).json(offers);
   } catch (err) {
-    res.send(err.message);
+    res.status(HttpCode.BAD_REQUEST).send(err.message);
+    pinoLogger.error(`Error: ${err.message}`);
   }
 };
 
