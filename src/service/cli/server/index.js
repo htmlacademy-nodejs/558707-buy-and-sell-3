@@ -2,7 +2,7 @@
 
 const app = require(`./server`);
 const {Command} = require(`../../../constants`);
-const {pinoLogger} = require(`../../../utils`);
+const pinoLogger = require(`../../../pino-logger`);
 
 const DEFAULT_PORT = process.env.PORT || 3000;
 

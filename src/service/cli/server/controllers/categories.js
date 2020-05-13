@@ -3,7 +3,7 @@
 const {join} = require(`path`);
 
 const handlers = require(`../utils`);
-const {pinoLogger} = require(`../../../../utils`);
+const pinoLogger = require(`../../../../pino-logger`);
 const {HttpCode} = require(`../../../../constants`);
 
 const FILE_PATH = join(__dirname, `..`, `..`, `..`, `..`, `..`, `data`, `categories.txt`);
