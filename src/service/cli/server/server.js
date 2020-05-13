@@ -19,15 +19,15 @@ app.use(ApiRouteName.CATEGORIES, categoriesRoutes);
 app.use(ApiRouteName.SEARCH, searchRoutes);
 
 app.use((req, res, next) => {
-    res.status(HttpCode.NOT_FOUND).send(`Not found`);
-    pinoLogger.error(`Error: ${res.statusMessage}`);
-    next();
+  res.status(HttpCode.NOT_FOUND).send(`Not found`);
+  pinoLogger.error(`Error: ${res.statusMessage}`);
+  next();
 });
 
 app.use((req, res, next) => {
-    pinoLogger.debug(`Start request to url ${req.url}`);
-    pinoLogger.info(`End request with status code ${res.statusCode}`);
-    next();
+  pinoLogger.debug(`Start request to url ${req.url}`);
+  pinoLogger.info(`End request with status code ${res.statusCode}`);
+  next();
 });
 
 module.exports = app;
