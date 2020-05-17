@@ -1,9 +1,9 @@
-'use strict';
+"use strict";
 
-const generate = require(`./generate`);
-const help = require(`./help`);
-const version = require(`./version`);
-const server = require(`./server`);
+const generate = require(`./commands/generate`);
+const help = require(`./commands/help`);
+const version = require(`./commands/version`);
+const server = require(`./commands/server`);
 
 const Cli = {
   [generate.name]: generate,

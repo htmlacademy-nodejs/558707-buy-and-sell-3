@@ -3,7 +3,7 @@
 const request = require(`supertest`);
 
 const server = require(`../server`);
-const {HttpCode, ApiRouteName} = require(`../../../../constants`);
+const {HttpCode, ApiRouteName} = require(`../../../../../constants`);
 
 describe(`Categories`, () => {
   describe(`GET`, () => {

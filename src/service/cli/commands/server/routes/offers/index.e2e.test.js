@@ -3,7 +3,7 @@
 const request = require(`supertest`);
 
 const server = require(`../../server`);
-const {HttpCode, ApiRouteName} = require(`../../../../../constants`);
+const {HttpCode, ApiRouteName} = require(`../../../../../../constants`);
 
 let mockOffer;
 
@@ -95,6 +95,7 @@ describe(`Offers`, () => {
                 .send(mockOffer);
 
       const id = res.body.id;
+
       const offerResponse = await request(server)
                 .delete(`${ApiRouteName.OFFERS}/${id}`);
 

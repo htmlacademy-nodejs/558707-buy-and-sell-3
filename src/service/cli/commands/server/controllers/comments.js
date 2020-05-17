@@ -3,10 +3,10 @@
 const {join} = require(`path`);
 
 const handlers = require(`../utils`);
-const pinoLogger = require(`../../../../pino-logger`);
-const {FILE_NAME, HttpCode} = require(`../../../../constants`);
+const pinoLogger = require(`../../../../../pino-logger`);
+const {FILE_NAME, HttpCode} = require(`../../../../../constants`);
 
-const FILE_PATH = join(__dirname, `..`, `..`, `..`, `..`, `..`, FILE_NAME);
+const FILE_PATH = join(__dirname, `..`, `..`, `..`, `..`, `..`, `..`, FILE_NAME);
 const COMMENTS_FIELDS_COUNT = 1;
 
 const getComments = async (req, res) => {

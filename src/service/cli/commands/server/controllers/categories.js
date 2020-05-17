@@ -3,10 +3,10 @@
 const {join} = require(`path`);
 
 const handlers = require(`../utils`);
-const pinoLogger = require(`../../../../pino-logger`);
-const {HttpCode} = require(`../../../../constants`);
+const pinoLogger = require(`../../../../../pino-logger`);
+const {HttpCode} = require(`../../../../../constants`);
 
-const FILE_PATH = join(__dirname, `..`, `..`, `..`, `..`, `..`, `data`, `categories.txt`);
+const FILE_PATH = join(__dirname, `..`, `..`, `..`, `..`, `..`, `..`, `data`, `categories.txt`);
 
 const getIndex = async (req, res) => {
   try {

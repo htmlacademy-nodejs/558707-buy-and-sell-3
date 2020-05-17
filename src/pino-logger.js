@@ -3,7 +3,6 @@
 const fs = require(`fs`);
 const pino = require(`pino`);
 const {resolve} = require(`path`);
-const multistream = require(`pino-multi-stream`).multistream;
 
 const serviceDirPath = resolve(__dirname, `service`);
 const logsDirPath = resolve(serviceDirPath, `logs`);
@@ -17,15 +16,23 @@ const options = {
   name: `pino-logger`,
   level: process.env.LOG_LEVEL || `info`,
 };
-const streams = [
-  {
-    stream: fs.createWriteStream(logsFilePath)
-  },
-  {
-    stream: pino.destination(1)
-  },
-];
 
-const pinoLogger = pino(options, multistream(streams));
+const pinoFileLogger = pino(options, logsFilePath);
+const pinoConsoleLogger = pino(options);
+
+const pinoLogger = {
+  debug: (msg) => {
+    pinoFileLogger.debug(msg);
+    pinoConsoleLogger.debug(msg);
+  },
+  info: (msg) => {
+    pinoFileLogger.info(msg);
+    pinoConsoleLogger.info(msg);
+  },
+  error: (msg) => {
+    pinoFileLogger.error(msg);
+    pinoConsoleLogger.error(msg);
+  },
+};
 
 module.exports = pinoLogger;

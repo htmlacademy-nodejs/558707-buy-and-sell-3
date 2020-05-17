@@ -2,8 +2,8 @@
 
 const express = require(`express`);
 
-const {HttpCode, ApiRouteName} = require(`../../../constants`);
-const pinoLogger = require(`../../../pino-logger`);
+const {HttpCode, ApiRouteName} = require(`../../../../constants`);
+const pinoLogger = require(`../../../../pino-logger`);
 
 const offersRoutes = require(`./routes/offers`);
 const categoriesRoutes = require(`./routes/categories`);
