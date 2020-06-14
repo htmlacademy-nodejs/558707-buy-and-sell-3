@@ -6,7 +6,7 @@ const multer = require(`multer`);
 const {getIndexEdit, getIndexAdd, postIndexAdd} = require(`../controllers/offers`);
 
 const offersRouter = new Router();
-const upload = multer({ dest: `src/express/public/img` });
+const upload = multer({dest: `src/express/public/img`});
 
 offersRouter.get(`/edit/:id`, getIndexEdit);
 
