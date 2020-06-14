@@ -17,6 +17,6 @@ const getIndex = async (req, res) => {
     } catch(err) {
         res.status(HttpCode.BAD_REQUEST).send(err.message);
     }
-}
+};
 
 module.exports = getIndex;

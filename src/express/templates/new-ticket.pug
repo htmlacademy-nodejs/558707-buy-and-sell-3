@@ -20,30 +20,30 @@ block content
                     div.ticket-form__content
                         div.ticket-form__row
                             div.form__field
-                                input#ticket-name.js-field(type="text", name="ticket-name", required="")
+                                input#ticket-name.js-field(type="text", name="title", required="", value= offer && offer.title ? offer.title : "")
                                 label(for="ticket-name") Название
                                 span Обязательное поле
                         div.ticket-form__row
                             div.form__field
-                                textarea#comment-field.js-field(name="comment", cols="30", rows="10", maxlength="400", minlength="50")
+                                textarea#comment-field.js-field(name="description", cols="30", rows="10", maxlength="400", minlength="50")
+                                    if offer && offer.description
+                                        = offer.description
                                 label(for="comment-field") Описание
                                 span Обязательное поле
                         div.ticket-form__row
                             select#category-field.form__select.js-multiple-select(name="category", data-label="Выбрать категорию публикации")
-                                option(value="1") Дом
-                                option(value="2") Спорт и отдых
-                                option(value="3") Авто
-                                option(value="4") Электроника
+                                each category, index in categories
+                                    option(value= category, selected= !offer || !offer.category ? false : Array.from(offer.category).some((offerCategory) => offerCategory === category) )= category
                         div.ticket-form__row
                             div.form__field.form__field--price
-                                input#price-field.js-field.js-price(type="number", name="price", min="1", required="")
+                                input#price-field.js-field.js-price(type="number", name="sum", min="1", required="", value= offer && offer.sum ? offer.sum : "")
                                 label(for="price-field") Цена
                                 span Обязательное поле
                             div.form__switch.switch
                                 div.switch__item
-                                    input#buy-field.visually-hidden(type="radio", name="action", value="buy")
+                                    input#buy-field.visually-hidden(type="radio", name="type", value="buy", checked= offer && offer.type === "buy")
                                     label.switch__button(for="buy-field") Куплю
                                 div.switch__item
-                                    input#sell-field.visually-hidden(type="radio", name="action", value="sell")
+                                    input#sell-field.visually-hidden(type="radio", name="type", value="sell", checked= offer && offer.type === "sell")
                                     label.switch__button(for="sell-field") Продам
                     button.form__button.btn.btn--medium.js-button(type="submit", disabled="") Опубликовать

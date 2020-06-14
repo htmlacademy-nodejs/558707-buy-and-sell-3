@@ -12,19 +12,19 @@ block content
                 a.tickets-list__btn.btn.btn--big(href="#")
                     span Новая публикация
             ul
-                each value, index in offers
+                each offer, index in offers
                     if index < 5
                         li.tickets-list__item.js-card
                             div(class=`ticket-card ticket-card--color0${index + 1}`)
                                 div.ticket-card__img
-                                    img(src=`/img/${value.picture}`, srcset=`/img/${value.picture} 2x`, alt="Изображение товара")
+                                    img(src=`/img/${offer.picture}`, srcset=`/img/${offer.picture} 2x`, alt="Изображение товара")
                                 div.ticket-card__info
-                                    span.ticket-card__label #{value.type}
+                                    span.ticket-card__label= offer.type
                                     div.ticket-card__categories
-                                        a(href="#") #{value.category}
+                                        a(href="#")= offer.category
                                     div.ticket-card__header
                                         h3.ticket-card__title
-                                            a(href="#") #{value.title}
+                                            a(href="#")= offer.title
                                         p.ticket-card__price
-                                            span.js-sum #{value.sum} ₽
+                                            span.js-sum= `${offer.sum} ₽`
                                 button.ticket-card__del.js-delete(type="button") Удалить

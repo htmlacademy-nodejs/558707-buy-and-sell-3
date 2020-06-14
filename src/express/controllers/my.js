@@ -3,7 +3,7 @@
 const axios = require(`../../axios`);
 const {HttpCode, API_URL, ApiRouteName} = require(`../../constants`);
 
-const getMy = async (req, res) => {
+const getIndex = async (req, res) => {
     try {
         const apiResponseOffers = await axios.get(API_URL + ApiRouteName.OFFERS);
         const offers = JSON.parse(apiResponseOffers.data);
@@ -16,7 +16,7 @@ const getMy = async (req, res) => {
     }
 };
 
-const getMyComments = async (req, res) => {
+const getIndexComments = async (req, res) => {
     try {
         const apiResponseOffers = await axios.get(API_URL + ApiRouteName.OFFERS);
         const offers = JSON.parse(apiResponseOffers.data).slice(0, 3);
@@ -30,6 +30,6 @@ const getMyComments = async (req, res) => {
 };
 
 module.exports = {
-    getMy,
-    getMyComments,
+    getIndex,
+    getIndexComments,
 };

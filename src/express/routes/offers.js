@@ -1,18 +1,20 @@
 "use strict";
 
 const {Router} = require(`express`);
+const multer = require(`multer`);
 
-const {getOffersEdit, postOfferAdd} = require(`../controllers/offers`);
+const {getIndexEdit, getIndexAdd, postIndexAdd} = require(`../controllers/offers`);
 
 const offersRouter = new Router();
+const upload = multer({ dest: `src/express/public/img` });
 
-offersRouter.get(`/edit/:id`, getOffersEdit);
+offersRouter.get(`/edit/:id`, getIndexEdit);
 
 offersRouter.get(`/category/:id`, (req, res) => res.render(`category`));
 
-offersRouter.get(`/add`, (req, res) => res.render(`new-ticket`));
+offersRouter.get(`/add`, getIndexAdd);
 
-offersRouter.post(`/add`, postOfferAdd);
+offersRouter.post(`/add`, upload.single(`avatar`), postIndexAdd);
 
 offersRouter.get(`/:id`, (req, res) => res.render(`ticket`));
 
