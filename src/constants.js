@@ -2,6 +2,7 @@
 
 module.exports = {
   FILE_NAME: `mock.json`,
+  API_URL: `http://localhost:3000`,
   ApiRouteName: {
     OFFERS: `/api/offers`,
     CATEGORIES: `/api/categories`,

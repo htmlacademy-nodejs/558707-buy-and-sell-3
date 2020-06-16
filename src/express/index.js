@@ -1,7 +1,6 @@
 "use strict";
 
 const express = require(`express`);
-
 const {join} = require(`path`);
 
 const indexRoutes = require(`./routes/index`);
@@ -16,6 +15,7 @@ const PUBLIC_DIR = join(__dirname, `public`);
 
 const app = express();
 
+app.use(express.urlencoded({extended: false}));
 
 app.use(express.static(PUBLIC_DIR));
 app.set(`view engine`, `pug`);

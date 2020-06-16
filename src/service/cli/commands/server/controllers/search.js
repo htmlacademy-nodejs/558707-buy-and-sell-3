@@ -11,7 +11,7 @@ const FILE_PATH = join(__dirname, `..`, `..`, `..`, `..`, `..`, `..`, FILE_NAME)
 const getIndex = async (req, res) => {
   try {
     const fileContent = await handlers.getContent(FILE_PATH);
-    const offers = fileContent.filter((offer) => new RegExp(req.query.query.toLowerCase()).test(offer.title.toLowerCase()));
+    const offers = fileContent.filter((offer) => new RegExp(decodeURI(req.query.query).toLowerCase()).test(offer.title.toLowerCase()));
 
     res.status(HttpCode.OK).json(offers);
   } catch (err) {
