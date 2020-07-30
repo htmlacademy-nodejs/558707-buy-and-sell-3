@@ -19,7 +19,7 @@ app.use(express.urlencoded({extended: false}));
 
 app.use(express.static(PUBLIC_DIR));
 app.set(`view engine`, `pug`);
-app.set(`views`, join(__dirname, `templates`));
+app.set(`views`, join(__dirname, `views`));
 
 app.use(`/`, indexRoutes);
 app.use(`/register`, registerRoutes);

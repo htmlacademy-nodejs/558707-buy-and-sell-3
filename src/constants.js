@@ -10,6 +10,7 @@ module.exports = {
   },
   Command: {
     GENERATE: `--generate`,
+    FILL: `--fill`,
     HELP: `--help`,
     VERSION: `--version`,
     SERVER: `--server`,
