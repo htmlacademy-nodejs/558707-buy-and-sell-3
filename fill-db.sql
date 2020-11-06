@@ -14,40 +14,46 @@ INSERT INTO types VALUES
 (2,'sell');
 
 INSERT INTO offers VALUES
-(1,'Voluptates quia deserunt quibusdam laborum consequuntur placeat magni impedit.','Vel alias quis quasi ullam hic id qui. Impedit dolorem et id ducimus dignissimos saepe nobis enim. Molestiae veritatis quas reprehenderit. Eum dolores laudantium et et. Et repellendus sed voluptas. Officiis quia totam eum.',Mon Sep 02 2019 20:14:05 GMT+0300 (GMT+03:00),'Commodi omnis quia molestiae et ipsum reprehenderit porro deleniti maxime. Fugiat explicabo omnis illum necessitatibus non. Sint nobis aliquid esse earum nam libero delectus tenetur. Ut est corrupti voluptatum unde distinctio velit occaecati quaerat.',2,'951.00','http://lorempixel.com/640/480/people'),
-(2,'Eum id voluptatem necessitatibus sit.','Ratione esse maiores voluptatem est eum distinctio eum velit consequatur. In et accusamus quisquam suscipit dignissimos. Esse aliquid voluptatem occaecati voluptas.',Wed Oct 02 2019 12:56:28 GMT+0300 (GMT+03:00),'Dolores eum cum.
+(1,'Voluptates quia deserunt quibusdam laborum consequuntur placeat magni impedit.','Vel alias quis quasi ullam hic id qui.','2019-09-02 20:14:05','Commodi omnis quia molestiae et ipsum reprehenderit porro deleniti maxime. Fugiat explicabo omnis illum necessitatibus non. Sint nobis aliquid esse earum nam libero delectus tenetur. Ut est corrupti voluptatum unde distinctio velit occaecati quaerat.',2,'951.00','http://lorempixel.com/640/480/people'),
+(2,'Eum id voluptatem necessitatibus sit.','Ratione esse maiores voluptatem est eum.','2019-10-02 12:56:28','Dolores eum cum.
 Vitae dolor ut dolores sit.
 Iure veniam occaecati in consequuntur corporis.
 Illo inventore veritatis accusamus excepturi doloremque consequatur est quo.
 Minus iusto consequuntur aliquam minus dolores quisquam eum impedit illum.',2,'411.00','http://lorempixel.com/640/480/nightlife'),
-(3,'Aut qui ipsa aut quis consequatur inventore quo.','Ut atque laboriosam asperiores voluptatem consectetur dolorem officia dolorem. Dolorem est quidem unde in eos est iure aspernatur. Itaque provident in molestiae. Iusto iste quae vero. Asperiores libero assumenda labore quaerat occaecati et magni rerum eius.',Sun Jul 19 2020 12:16:40 GMT+0300 (GMT+03:00),'Omnis quis possimus esse enim sequi saepe necessitatibus eveniet aut. Dolor ipsum fuga. Minima ipsam molestiae inventore enim rerum.
- In itaque repudiandae at omnis hic aut. Quidem molestiae sint natus quos illum ducimus nesciunt. Error reprehenderit sed aut quaerat cumque recusandae ut. Magni enim rem blanditiis mollitia laudantium.
- Illo iure aut vero. Nostrum deleniti consequatur ex recusandae in impedit. Culpa quo porro et sit in vel non est aut.',2,'654.00','http://lorempixel.com/640/480/nightlife'),
-(4,'Quo velit possimus.','Voluptatum et consequatur ea nam. Dolorum deserunt repellendus. In perferendis dolores officia autem esse sit fugiat velit. Maxime et cum ea aut laudantium magnam quam voluptatem.',Wed Jan 29 2020 23:01:14 GMT+0300 (GMT+03:00),'tempora',2,'602.00','http://lorempixel.com/640/480/technics'),
-(5,'Quis molestiae error officiis molestias a.','Sunt repellat nulla rerum numquam. Est velit et suscipit voluptatem ea. Molestiae placeat autem quia eos unde consequuntur iure quod.',Wed Dec 04 2019 01:51:15 GMT+0300 (GMT+03:00),'Eos nam quam nihil ut. Illum iste debitis molestias autem voluptas vero dolorem sed assumenda. Accusantium quibusdam inventore saepe molestiae dolores eaque. Sit molestias molestiae qui temporibus nam quia.
- Unde qui hic aut. Sit nihil totam voluptas quia. Commodi quibusdam et aliquam aut non debitis voluptas. Quos asperiores nihil ipsa quae aperiam natus eos porro. Reprehenderit architecto optio iste occaecati dolorem sunt fugit. Rem voluptate quia ipsam aut.
- Ea voluptate vero omnis quia numquam asperiores quidem saepe molestiae. At corrupti minus consectetur omnis. Sunt quidem natus nam consectetur aut voluptate optio.',2,'548.00','http://lorempixel.com/640/480/food'),
-(6,'Temporibus ut dignissimos eos sed qui eos hic reprehenderit repellendus.','Ea sint aperiam pariatur numquam aliquam cum. Fuga aut alias.',Wed Apr 29 2020 08:32:49 GMT+0300 (GMT+03:00),'Ducimus blanditiis aspernatur voluptas qui. Veritatis ab rerum. Ut ut cupiditate.',1,'851.00','http://lorempixel.com/640/480/nightlife'),
-(7,'Mollitia repudiandae aut deleniti ducimus dolor possimus.','Recusandae a dolorem excepturi nesciunt sed esse animi occaecati. Voluptate quas et nihil ad tempora. Non neque molestiae possimus et ut magnam molestias reiciendis. Voluptates non maxime excepturi et officiis. Et necessitatibus rerum facilis et sit. Incidunt ullam quisquam vitae consequatur id magnam sapiente natus officia.',Sat Oct 05 2019 05:59:39 GMT+0300 (GMT+03:00),'Laboriosam ut aut a. Est deleniti et ea iure. Nisi sint odio facere voluptatem pariatur voluptatem et. Id quis eaque assumenda neque recusandae similique ratione nostrum enim.',2,'236.00','http://lorempixel.com/640/480/cats'),
-(8,'Aut et sunt id placeat vel.','Velit tempore magni qui porro. Repellendus voluptatem eaque vel.',Wed Apr 29 2020 22:03:33 GMT+0300 (GMT+03:00),'Rerum beatae quisquam enim.
+(3,'Aut qui ipsa aut quis consequatur inventore quo.','Ut atque laboriosam asperiores.','2020-07-19 12:16:40','Omnis quis possimus esse enim sequi saepe necessitatibus eveniet aut. Dolor ipsum fuga. Minima ipsam molestiae inventore enim rerum.
+
+In itaque repudiandae at omnis hic aut. Quidem molestiae sint natus quos illum ducimus nesciunt. Error reprehenderit sed aut quaerat cumque recusandae ut. Magni enim rem blanditiis mollitia laudantium.
+
+Illo iure aut vero. Nostrum deleniti consequatur ex recusandae in impedit. Culpa quo porro et sit in vel non est aut.',2,'654.00','http://lorempixel.com/640/480/nightlife'),
+(4,'Quo velit possimus.','Voluptatum et consequatur ea nam.','2020-01-29 23:01:14','tempora',2,'602.00','http://lorempixel.com/640/480/technics'),
+(5,'Quis molestiae error officiis molestias a.','Sunt repellat nulla rerum numquam.','2019-12-04 01:51:15','Eos nam quam nihil ut. Illum iste debitis molestias autem voluptas vero dolorem sed assumenda. Accusantium quibusdam inventore saepe molestiae dolores eaque. Sit molestias molestiae qui temporibus nam quia.
+
+Unde qui hic aut. Sit nihil totam voluptas quia. Commodi quibusdam et aliquam aut non debitis voluptas. Quos asperiores nihil ipsa quae aperiam natus eos porro. Reprehenderit architecto optio iste occaecati dolorem sunt fugit. Rem voluptate quia ipsam aut.
+
+Ea voluptate vero omnis quia numquam asperiores quidem saepe molestiae. At corrupti minus consectetur omnis. Sunt quidem natus nam consectetur aut voluptate optio.',2,'548.00','http://lorempixel.com/640/480/food'),
+(6,'Temporibus ut dignissimos eos sed qui eos hic reprehenderit repellendus.','Ea sint aperiam pariatur.','2020-04-29 08:32:49','Ducimus blanditiis aspernatur voluptas qui. Veritatis ab rerum. Ut ut cupiditate.',1,'851.00','http://lorempixel.com/640/480/nightlife'),
+(7,'Mollitia repudiandae aut deleniti ducimus dolor possimus.','Recusandae a dolorem.','2019-10-05 05:59:39','Laboriosam ut aut a. Est deleniti et ea iure. Nisi sint odio facere voluptatem pariatur voluptatem et. Id quis eaque assumenda neque recusandae similique ratione nostrum enim.',2,'236.00','http://lorempixel.com/640/480/cats'),
+(8,'Aut et sunt id placeat vel.','Velit tempore magni qui porro.','2020-04-29 22:03:33','Rerum beatae quisquam enim.
 Quidem sit quam magni officiis aut incidunt nobis beatae voluptates.
 Nobis eos et.
 Ut delectus deserunt tenetur.
 Quo incidunt et voluptatem.',2,'838.00','http://lorempixel.com/640/480/transport'),
-(9,'Deserunt sunt harum numquam.','Nam omnis consequatur. Voluptates sunt temporibus eum perferendis ut dolorum. Eligendi temporibus dolorem. Consectetur ut rem laudantium amet nisi quos. Aut a quia et minus veritatis non quaerat.',Sun May 10 2020 08:07:11 GMT+0300 (GMT+03:00),'Quod commodi ab quo a et necessitatibus pariatur.',1,'514.00','http://lorempixel.com/640/480/abstract'),
-(10,'Omnis quia similique voluptatum quia.','Fugiat ea perspiciatis quas tempore veniam possimus ut ea omnis. Similique voluptate est ducimus aut dolore eos.',Sun Jun 21 2020 11:27:19 GMT+0300 (GMT+03:00),'Numquam quibusdam et animi assumenda necessitatibus sit. Impedit sed est sit quam voluptatem eius fugit. Eos ea earum quia ea et voluptate. Quia incidunt soluta assumenda odio omnis.',2,'797.00','http://lorempixel.com/640/480/city'),
-(11,'Autem impedit illum soluta nihil recusandae quasi veniam.','Laboriosam modi nihil tempore sint. Aperiam adipisci vel dicta aut minima. Saepe repudiandae quis dolores. Adipisci dicta saepe et quae temporibus explicabo. Cupiditate ducimus qui et commodi excepturi. Laborum perspiciatis reprehenderit placeat ut.',Thu Nov 07 2019 22:20:55 GMT+0300 (GMT+03:00),'Architecto nobis temporibus et dolores dolorem. Quia nihil qui ex. Aut vitae itaque assumenda ullam at tempora numquam et provident.',1,'692.00','http://lorempixel.com/640/480/cats'),
-(12,'Laborum molestiae eos totam.','Impedit deleniti sequi. Perferendis nihil in sed non quae. Officiis voluptas quis. Porro voluptatem quidem et atque et provident consectetur est. Voluptas officia in repudiandae cum exercitationem facere facilis. Ut sed facere aut est tenetur.',Thu Jul 23 2020 13:51:02 GMT+0300 (GMT+03:00),'Temporibus esse qui provident atque tempore aut eos. Delectus minus aut et. Non vitae ipsum at.',2,'63.00','http://lorempixel.com/640/480/food'),
-(13,'Ipsum eum voluptatum excepturi aliquam quia quia est.','Incidunt quia expedita incidunt ipsa dolores tenetur dolorem. Modi nemo velit provident blanditiis enim animi dolorum quia qui. Et ad blanditiis facilis. Quia accusantium dolores voluptas dolores nulla reprehenderit nihil consequatur. Quo possimus molestiae optio inventore error.',Mon Dec 16 2019 15:26:03 GMT+0300 (GMT+03:00),'Maiores quo voluptatem placeat officia.',2,'779.00','http://lorempixel.com/640/480/abstract'),
-(14,'Ab atque in.','Quam eligendi culpa. Omnis ut molestiae sit fuga expedita harum facere.',Mon Nov 25 2019 03:08:54 GMT+0300 (GMT+03:00),'qui',1,'321.00','http://lorempixel.com/640/480/animals'),
-(15,'Dolorem assumenda natus assumenda.','Alias at molestiae incidunt sed. Illo optio atque cumque culpa recusandae dolorum illum dolorem. Enim aut iure accusantium nemo amet. Nisi in cumque sit dolores. Maiores omnis architecto optio exercitationem nisi corrupti at optio perferendis.',Sat Nov 23 2019 01:43:48 GMT+0300 (GMT+03:00),'Fugiat sed ipsa cupiditate. Fugit soluta reiciendis ducimus unde est et. Tenetur distinctio magni sint qui at.',2,'817.00','http://lorempixel.com/640/480/transport'),
-(16,'Qui explicabo maiores.','Sunt incidunt quam eligendi beatae blanditiis ea ullam voluptatem doloribus. Facilis saepe aut voluptas. Quo earum ipsa dolores dolore qui debitis. Molestias iure suscipit ab error.',Sun Dec 22 2019 19:07:09 GMT+0300 (GMT+03:00),'Ducimus officia rerum voluptates. Voluptas facilis adipisci dolorum. Quia officiis voluptas iusto.
- Placeat ut quae qui. Iste rerum autem illo. Laborum voluptatem praesentium a cupiditate a earum. Vel minus corporis iusto nihil. Ratione ab impedit ut rerum voluptas ut iusto et.
- Cupiditate animi et eius neque dolorem nostrum voluptatem. Dolorem nulla autem non ea sit veniam voluptas reprehenderit maxime. Voluptate adipisci sit ab ut et labore velit possimus. Sequi sequi et exercitationem accusantium.',1,'801.00','http://lorempixel.com/640/480/city'),
-(17,'Incidunt voluptatem harum quis quaerat.','Et natus est inventore omnis et quae voluptas deleniti alias. Vel eos et officia sed vel officia eos. Sint voluptatem inventore rerum rem necessitatibus rerum necessitatibus. Architecto dicta sed perspiciatis doloremque debitis quas.',Sun Apr 26 2020 14:22:10 GMT+0300 (GMT+03:00),'Et animi necessitatibus dolor optio dolore rerum delectus nesciunt. Soluta praesentium quis nobis aut vero id adipisci ex eveniet. Ipsam fuga est. Quae magni iusto velit. Totam enim fugiat consequatur odio alias est.',2,'428.00','http://lorempixel.com/640/480/technics'),
-(18,'A quod vitae sit dolor.','Adipisci et molestias dolores. Itaque veniam mollitia autem sed. Enim ab non modi voluptatum iste reiciendis est dolorum aliquid. Dolores laboriosam vel laboriosam sit. Tempore rerum quae sequi est qui. Dolore molestiae culpa consequatur harum quasi.',Tue Oct 29 2019 04:12:13 GMT+0300 (GMT+03:00),'Qui aut nihil sit eaque.',1,'470.00','http://lorempixel.com/640/480/nature'),
-(19,'Expedita quae sit ratione sed a.','Eum quaerat eos delectus dolor. Nihil eveniet et. Nobis accusantium sit tempore itaque quo asperiores amet. Tempore dicta libero quia ad beatae. Nobis quo expedita similique sit similique.',Fri May 22 2020 07:48:27 GMT+0300 (GMT+03:00),'non odio ab',2,'959.00','http://lorempixel.com/640/480/people'),
-(20,'Corporis ullam et ipsam et sit et aut esse.','Sint a voluptatem. Perferendis recusandae maiores magni. Dolor maiores at at sed officiis vel beatae explicabo maiores.',Tue Jul 07 2020 19:22:33 GMT+0300 (GMT+03:00),'Sequi enim tempore. Suscipit tempore dolores unde sequi dolorem suscipit reiciendis quia. Nobis ipsum accusamus molestiae molestias sit. Nemo fugit qui dolores sit dolores eveniet corporis quas a. Necessitatibus voluptatem repellat odio voluptatem nobis.',2,'977.00','http://lorempixel.com/640/480/nature');
+(9,'Deserunt sunt harum numquam.','Nam omnis consequatur.','2020-05-10 08:07:11','Quod commodi ab quo a et necessitatibus pariatur.',1,'514.00','http://lorempixel.com/640/480/abstract'),
+(10,'Omnis quia similique voluptatum quia.','Fugiat ea perspiciatis quas tempore.','2020-06-21 11:27:19','Numquam quibusdam et animi assumenda necessitatibus sit. Impedit sed est sit quam voluptatem eius fugit. Eos ea earum quia ea et voluptate. Quia incidunt soluta assumenda odio omnis.',2,'797.00','http://lorempixel.com/640/480/city'),
+(11,'Autem impedit illum soluta nihil recusandae quasi veniam.','Laboriosam modi nihil tempore sint.','2019-11-07 22:20:55','Architecto nobis temporibus et dolores dolorem. Quia nihil qui ex. Aut vitae itaque assumenda ullam at tempora numquam et provident.',1,'692.00','http://lorempixel.com/640/480/cats'),
+(12,'Laborum molestiae eos totam.','Impedit deleniti sequi.','2020-07-23 13:51:02','Temporibus esse qui provident atque tempore aut eos. Delectus minus aut et. Non vitae ipsum at.',2,'63.00','http://lorempixel.com/640/480/food'),
+(13,'Ipsum eum voluptatum excepturi aliquam quia quia est.','Incidunt quia expedita.','2019-12-16 15:26:03','Maiores quo voluptatem placeat officia.',2,'779.00','http://lorempixel.com/640/480/abstract'),
+(14,'Ab atque in.','Quam eligendi culpa.','2019-11-25 03:08:54','qui',1,'321.00','http://lorempixel.com/640/480/animals'),
+(15,'Dolorem assumenda natus assumenda.','Alias at molestiae incidunt sed.','2019-11-23 01:43:48','Fugiat sed ipsa cupiditate. Fugit soluta reiciendis ducimus unde est et. Tenetur distinctio magni sint qui at.',2,'817.00','http://lorempixel.com/640/480/transport'),
+(16,'Qui explicabo maiores.','Sunt incidunt quam eligendi.','2019-12-22  19:07:09','Ducimus officia rerum voluptates. Voluptas facilis adipisci dolorum. Quia officiis voluptas iusto.
+
+Placeat ut quae qui. Iste rerum autem illo. Laborum voluptatem praesentium a cupiditate a earum. Vel minus corporis iusto nihil. Ratione ab impedit ut rerum voluptas ut iusto et.
+
+Cupiditate animi et eius neque dolorem nostrum voluptatem. Dolorem nulla autem non ea sit veniam voluptas reprehenderit maxime. Voluptate adipisci sit ab ut et labore velit possimus. Sequi sequi et exercitationem accusantium.',1,'801.00','http://lorempixel.com/640/480/city'),
+(17,'Incidunt voluptatem harum quis quaerat.','Et natus est inventore.','2020-04-26 14:22:10','Et animi necessitatibus dolor optio dolore rerum delectus nesciunt. Soluta praesentium quis nobis aut vero id adipisci ex eveniet. Ipsam fuga est. Quae magni iusto velit. Totam enim fugiat consequatur odio alias est.',2,'428.00','http://lorempixel.com/640/480/technics'),
+(18,'A quod vitae sit dolor.','Adipisci et molestias dolores.','2019-10-29 04:12:13','Qui aut nihil sit eaque.',1,'470.00','http://lorempixel.com/640/480/nature'),
+(19,'Expedita quae sit ratione sed a.','Eum quaerat eos delectus dolor.','2020-05-22 07:48:27','non odio ab',2,'959.00','http://lorempixel.com/640/480/people'),
+(20,'Corporis ullam et ipsam et sit et aut esse.','Sint a voluptatem.','2020-07-07 19:22:33','Sequi enim tempore. Suscipit tempore dolores unde sequi dolorem suscipit reiciendis quia. Nobis ipsum accusamus molestiae molestias sit. Nemo fugit qui dolores sit dolores eveniet corporis quas a. Necessitatibus voluptatem repellat odio voluptatem nobis.',2,'977.00','http://lorempixel.com/640/480/nature');
 
 INSERT INTO categories VALUES
 (1,'Книги'),
@@ -111,66 +117,46 @@ INSERT INTO users_offers VALUES
 (4,20);
 
 INSERT INTO offers_categories VALUES
-(1,1),
-(2,2),
-(3,3),
-(1,4),
-(2,5),
-(3,6),
-(1,7),
-(2,8),
-(3,1),
 (1,2),
-(2,3),
-(3,4),
-(1,5),
-(2,6),
-(3,7),
 (1,8),
-(2,1),
-(3,2),
-(1,3),
-(2,4),
-(3,5),
-(1,6),
-(2,7),
-(3,8),
-(1,1),
-(2,2),
-(3,3),
-(1,4),
-(2,5),
-(3,6),
-(1,7),
-(2,8),
-(3,1),
-(1,2),
 (2,3),
-(3,4),
-(1,5),
-(2,6),
+(3,2),
+(3,5),
 (3,7),
-(1,8),
-(2,1),
-(3,2),
-(1,3),
-(2,4),
-(3,5),
-(1,6),
-(2,7),
-(3,8),
-(1,1),
-(2,2),
-(3,3),
-(1,4),
-(2,5),
-(3,6),
-(1,7),
-(2,8),
-(3,1),
-(1,2),
-(2,3),
-(3,4);
+(4,7),
+(4,8),
+(5,1),
+(5,3),
+(5,6),
+(5,8),
+(6,8),
+(9,1),
+(9,4),
+(9,7),
+(10,6),
+(10,7),
+(11,3),
+(11,4),
+(11,5),
+(11,6),
+(12,2),
+(12,5),
+(12,6),
+(13,1),
+(14,1),
+(15,2),
+(15,7),
+(16,5),
+(17,4),
+(17,6),
+(18,2),
+(18,4),
+(18,6),
+(19,7),
+(19,8),
+(20,2),
+(20,3),
+(20,5);
 
 INSERT INTO offers_comments VALUES
 (2,1),
