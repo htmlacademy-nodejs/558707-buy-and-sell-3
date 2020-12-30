@@ -1,5 +1,7 @@
 "use strict";
 
+require(`dotenv`).config();
+
 const app = require(`./server`);
 const {Command} = require(`../../../../constants`);
 const pinoLogger = require(`../../../../pino-logger`);
@@ -13,7 +15,7 @@ module.exports = {
     const formattedPort = parseInt(port, 10) || DEFAULT_PORT;
 
     Database.connect();
-    
+
     app.listen(formattedPort, () => pinoLogger.info(`Server start on ${formattedPort}`))
         .on(`error`, (err) => pinoLogger.error(`Server can't start. Error: ${err}`));
   },
