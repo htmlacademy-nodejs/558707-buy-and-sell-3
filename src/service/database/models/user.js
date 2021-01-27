@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = ({Model, DataTypes}, sequelize) => {
+const createUserModel = (Model, DataTypes, sequelize) => {
   class User extends Model {}
   User.init({
     id: {
@@ -32,4 +32,22 @@ module.exports = ({Model, DataTypes}, sequelize) => {
   });
 
   return User;
+};
+
+const createUserRelations = (User, Offer, Comment) => {
+  User.belongsToMany(Offer, {
+    through: `users_offers`,
+    as: `offers`,
+    foreignKey: `user_id`,
+  });
+
+  User.hasMany(Comment, {
+    as: `comments`,
+    foreignKey: `user_id`,
+  });
+};
+
+module.exports = {
+  createUserModel,
+  createUserRelations,
 };

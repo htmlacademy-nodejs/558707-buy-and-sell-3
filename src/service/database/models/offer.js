@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = ({Model, DataTypes}, sequelize) => {
+const createOfferModel = (Model, DataTypes, sequelize) => {
   class Offer extends Model {}
   Offer.init({
     id: {
@@ -47,4 +47,28 @@ module.exports = ({Model, DataTypes}, sequelize) => {
   });
 
   return Offer;
+};
+
+const createOfferRelations = (Offer, User, Category, Type) => {
+  Offer.belongsToMany(User, {
+    through: `users_offers`,
+    as: `users`,
+    foreignKey: `offer_id`,
+  });
+
+  Offer.belongsToMany(Category, {
+    through: `offers_categories`,
+    as: `categories`,
+    foreignKey: `offer_id`,
+  });
+
+  Offer.belongsTo(Type, {
+    as: `type`,
+    foreignKey: `type_id`,
+  });
+};
+
+module.exports = {
+  createOfferModel,
+  createOfferRelations,
 };

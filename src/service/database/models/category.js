@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = ({Model, DataTypes}, sequelize) => {
+const createCategoryModel = (Model, DataTypes, sequelize) => {
   class Category extends Model {}
   Category.init({
     id: {
@@ -20,4 +20,17 @@ module.exports = ({Model, DataTypes}, sequelize) => {
   });
 
   return Category;
+};
+
+const createCategoryRelations = (Category, Offer) => {
+  Category.belongsToMany(Offer, {
+    through: `offers_categories`,
+    as: `offers`,
+    foreignKey: `category_id`,
+  });
+};
+
+module.exports = {
+  createCategoryModel,
+  createCategoryRelations,
 };

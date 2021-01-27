@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = ({Model, DataTypes}, sequelize) => {
+const createTypeModel = (Model, DataTypes, sequelize) => {
   class Type extends Model {}
   Type.init({
     id: {
@@ -20,4 +20,16 @@ module.exports = ({Model, DataTypes}, sequelize) => {
   });
 
   return Type;
+};
+
+const createTypeRelations = (Type, Offer) => {
+  Type.hasMany(Offer, {
+    as: `offers`,
+    foreignKey: `type_id`,
+  });
+};
+
+module.exports = {
+  createTypeModel,
+  createTypeRelations,
 };
