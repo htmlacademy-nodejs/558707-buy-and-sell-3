@@ -17,6 +17,20 @@ const shuffle = (someArray) => {
   return someArray;
 };
 
+const getRandomSubarray = (items) => {
+  items = items.slice();
+  let count = getRandomInt(1, items.length - 1);
+  const result = [];
+  while (count--) {
+    result.push(
+        ...items.splice(
+            getRandomInt(0, items.length - 1), 1
+        )
+    );
+  }
+  return result;
+};
+
 const logger = {
   showError: (msg) => console.error(chalk.red(msg)),
   showSuccess: (msg) => console.info(chalk.green(msg)),
@@ -27,5 +41,6 @@ const logger = {
 module.exports = {
   getRandomInt,
   shuffle,
+  getRandomSubarray,
   logger,
 };

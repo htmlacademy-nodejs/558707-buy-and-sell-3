@@ -1,14 +1,8 @@
 "use strict";
 
-const createTypeModel = (Model, DataTypes, sequelize) => {
+const createType = ({Model, DataTypes}, sequelize) => {
   class Type extends Model {}
   Type.init({
-    id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true,
-      allowNull: false,
-    },
     name: {
       type: DataTypes.CHAR(100),
       allowNull: false,
@@ -17,19 +11,11 @@ const createTypeModel = (Model, DataTypes, sequelize) => {
     sequelize,
     timestamps: true,
     paranoid: true,
+    modelName: `Type`,
+    tableName: `types`,
   });
 
   return Type;
 };
 
-const createTypeRelations = (Type, Offer) => {
-  Type.hasMany(Offer, {
-    as: `offers`,
-    foreignKey: `type_id`,
-  });
-};
-
-module.exports = {
-  createTypeModel,
-  createTypeRelations,
-};
+module.exports = createType;

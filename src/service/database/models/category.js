@@ -1,14 +1,8 @@
 "use strict";
 
-const createCategoryModel = (Model, DataTypes, sequelize) => {
+const createCategory = ({Model, DataTypes}, sequelize) => {
   class Category extends Model {}
   Category.init({
-    id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true,
-      allowNull: false,
-    },
     name: {
       type: DataTypes.CHAR(100),
       allowNull: false,
@@ -17,20 +11,11 @@ const createCategoryModel = (Model, DataTypes, sequelize) => {
     sequelize,
     timestamps: true,
     paranoid: true,
+    modelName: `Category`,
+    tableName: `categories`,
   });
 
   return Category;
 };
 
-const createCategoryRelations = (Category, Offer) => {
-  Category.belongsToMany(Offer, {
-    through: `offers_categories`,
-    as: `offers`,
-    foreignKey: `category_id`,
-  });
-};
-
-module.exports = {
-  createCategoryModel,
-  createCategoryRelations,
-};
+module.exports = createCategory;

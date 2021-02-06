@@ -1,14 +1,8 @@
 "use strict";
 
-const createUserModel = (Model, DataTypes, sequelize) => {
+const createUser = ({Model, DataTypes}, sequelize) => {
   class User extends Model {}
   User.init({
-    id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true,
-      allowNull: false,
-    },
     name: {
       type: DataTypes.CHAR(100),
       allowNull: false,
@@ -29,25 +23,11 @@ const createUserModel = (Model, DataTypes, sequelize) => {
     sequelize,
     timestamps: true,
     paranoid: true,
+    modelName: `User`,
+    tableName: `users`,
   });
 
   return User;
 };
 
-const createUserRelations = (User, Offer, Comment) => {
-  User.belongsToMany(Offer, {
-    through: `users_offers`,
-    as: `offers`,
-    foreignKey: `user_id`,
-  });
-
-  User.hasMany(Comment, {
-    as: `comments`,
-    foreignKey: `user_id`,
-  });
-};
-
-module.exports = {
-  createUserModel,
-  createUserRelations,
-};
+module.exports = createUser;

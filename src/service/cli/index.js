@@ -1,12 +1,12 @@
 "use strict";
 
-const generate = require(`./commands/generate`);
+const filldb = require(`./commands/filldb`);
 const help = require(`./commands/help`);
 const version = require(`./commands/version`);
 const server = require(`./commands/server`);
 
 const Cli = {
-  [generate.name]: generate,
+  [filldb.name]: filldb,
   [help.name]: help,
   [version.name]: version,
   [server.name]: server,

@@ -1,14 +1,8 @@
 "use strict";
 
-const createOfferModel = (Model, DataTypes, sequelize) => {
+const createOffer = ({Model, DataTypes}, sequelize) => {
   class Offer extends Model {}
   Offer.init({
-    id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true,
-      allowNull: false,
-    },
     title: {
       type: DataTypes.CHAR(100),
       allowNull: false,
@@ -20,16 +14,11 @@ const createOfferModel = (Model, DataTypes, sequelize) => {
     createdAt: {
       type: DataTypes.DATE,
       defaultValue: DataTypes.NOW,
-      field: `created_at`,
+      field: `createdAt`,
       allowNull: false,
     },
     description: {
       type: DataTypes.CHAR(50),
-      allowNull: false,
-    },
-    typeId: {
-      type: DataTypes.INTEGER,
-      field: `type_id`,
       allowNull: false,
     },
     price: {
@@ -44,31 +33,11 @@ const createOfferModel = (Model, DataTypes, sequelize) => {
     sequelize,
     timestamps: true,
     paranoid: true,
+    modelName: `Offer`,
+    tableName: `offers`,
   });
 
   return Offer;
 };
 
-const createOfferRelations = (Offer, User, Category, Type) => {
-  Offer.belongsToMany(User, {
-    through: `users_offers`,
-    as: `users`,
-    foreignKey: `offer_id`,
-  });
-
-  Offer.belongsToMany(Category, {
-    through: `offers_categories`,
-    as: `categories`,
-    foreignKey: `offer_id`,
-  });
-
-  Offer.belongsTo(Type, {
-    as: `type`,
-    foreignKey: `type_id`,
-  });
-};
-
-module.exports = {
-  createOfferModel,
-  createOfferRelations,
-};
+module.exports = createOffer;
