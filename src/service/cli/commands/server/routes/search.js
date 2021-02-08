@@ -2,10 +2,12 @@
 
 const {Router} = require(`express`);
 
-const getIndex = require(`../controllers/search`);
+module.exports = (sequelize) => {
+    const getIndex = require(`../controllers/search`)(sequelize);
 
-const searchRouter = new Router();
+    const searchRouter = new Router();
+    
+    searchRouter.get(`/`, getIndex);
 
-searchRouter.get(`/`, getIndex);
-
-module.exports = searchRouter;
+    return searchRouter;
+};

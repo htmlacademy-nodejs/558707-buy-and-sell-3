@@ -1,23 +1,17 @@
 "use strict";
 
-const {join} = require(`path`);
-
 const handlers = require(`../utils`);
 const pinoLogger = require(`../../../../../pino-logger`);
 const {HttpCode} = require(`../../../../../constants`);
 
-const FILE_PATH = join(__dirname, `..`, `..`, `..`, `..`, `..`, `..`, `data`, `categories.txt`);
-
-const getIndex = async (req, res) => {
+const getIndex = (sequelize) => (async (req, res) => {
   try {
-    const fileContent = await handlers.getContent(FILE_PATH, false);
-    const categories = fileContent.split(`\n`).slice(0, -1);
-
+    const categories = await sequelize.models.Category.findAll({raw: true});
     res.status(HttpCode.OK).json(categories);
   } catch (err) {
     res.status(HttpCode.BAD_REQUEST).send(err.message);
     pinoLogger.error(`Error: ${err.message}`);
   }
-};
+});
 
 module.exports = getIndex;
