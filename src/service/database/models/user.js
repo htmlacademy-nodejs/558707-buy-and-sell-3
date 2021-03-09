@@ -1,6 +1,8 @@
 "use strict";
 
-const createUser = ({Model, DataTypes}, sequelize) => {
+const Aliase = require(`./aliase`);
+
+const createUserModel = ({Model, DataTypes}, sequelize) => {
   class User extends Model {}
   User.init({
     name: {
@@ -30,4 +32,12 @@ const createUser = ({Model, DataTypes}, sequelize) => {
   return User;
 };
 
-module.exports = createUser;
+const createUserRelations = ({User, Comment, Offer, UserOffer}) => {
+  User.hasMany(Comment, {as: Aliase.COMMENTS, foreignKey: `userId`});
+  User.belongsToMany(Offer, {through: UserOffer, as: Aliase.OFFERS});
+};
+
+module.exports = {
+  createUserModel,
+  createUserRelations,
+};

@@ -1,6 +1,6 @@
 "use strict";
 
-const createComment = ({Model, DataTypes}, sequelize) => {
+const createCommentModel = ({Model, DataTypes}, sequelize) => {
   class Comment extends Model {}
   Comment.init({
     text: {
@@ -18,4 +18,12 @@ const createComment = ({Model, DataTypes}, sequelize) => {
   return Comment;
 };
 
-module.exports = createComment;
+const createCommentRelations = ({Comment, User, Offer}) => {
+  Comment.belongsTo(User, {foreignKey: `userId`});
+  Comment.belongsTo(Offer, {foreignKey: `offerId`});
+};
+
+module.exports = {
+  createCommentModel,
+  createCommentRelations,
+};

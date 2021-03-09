@@ -6,7 +6,7 @@ const {HttpCode, ApiRouteName} = require(`../../../../constants`);
 const pinoLogger = require(`../../../../pino-logger`);
 
 module.exports = (sequelize, formattedPort) => {
-  const offersRoutes = require(`./routes/offers`);
+  const offersRoutes = require(`./routes/offers`)(sequelize);
   const categoriesRoutes = require(`./routes/categories`)(sequelize);
   const searchRoutes = require(`./routes/search`)(sequelize);
 

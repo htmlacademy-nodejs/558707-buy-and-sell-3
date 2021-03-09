@@ -1,6 +1,8 @@
 "use strict";
 
-const createType = ({Model, DataTypes}, sequelize) => {
+const Aliase = require(`./aliase`);
+
+const createTypeModel = ({Model, DataTypes}, sequelize) => {
   class Type extends Model {}
   Type.init({
     name: {
@@ -18,4 +20,11 @@ const createType = ({Model, DataTypes}, sequelize) => {
   return Type;
 };
 
-module.exports = createType;
+const createTypeRelations = ({Type, Offer}) => {
+  Type.hasMany(Offer, {as: Aliase.OFFERS, foreignKey: `typeId`});
+};
+
+module.exports = {
+  createTypeModel,
+  createTypeRelations,
+};

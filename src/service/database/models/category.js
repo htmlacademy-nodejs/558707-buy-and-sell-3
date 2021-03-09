@@ -1,6 +1,8 @@
 "use strict";
 
-const createCategory = ({Model, DataTypes}, sequelize) => {
+const Aliase = require(`./aliase`);
+
+const createCategoryModel = ({Model, DataTypes}, sequelize) => {
   class Category extends Model {}
   Category.init({
     name: {
@@ -18,4 +20,12 @@ const createCategory = ({Model, DataTypes}, sequelize) => {
   return Category;
 };
 
-module.exports = createCategory;
+const createCategoryRelations = ({Category, Offer, OfferCategory}) => {
+  Category.belongsToMany(Offer, {through: OfferCategory, as: Aliase.OFFERS});
+  Category.hasMany(OfferCategory, {as: Aliase.OFFER_CATEGORIES});
+};
+
+module.exports = {
+  createCategoryModel,
+  createCategoryRelations,
+};

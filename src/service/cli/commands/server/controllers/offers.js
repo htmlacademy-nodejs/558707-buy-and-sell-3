@@ -1,83 +1,65 @@
 "use strict";
 
-const {join} = require(`path`);
-
-const handlers = require(`../utils`);
+const api = require(`../api`);
 const pinoLogger = require(`../../../../../pino-logger`);
-const {FILE_NAME, HttpCode} = require(`../../../../../constants`);
+const {HttpCode} = require(`../../../../../constants`);
 
-const FILE_PATH = join(__dirname, `..`, `..`, `..`, `..`, `..`, `..`, FILE_NAME);
-const OFFERS_FIELDS_COUNT = 6;
+module.exports = (sequelize) => {
+  const getOffers = async (req, res) => {
+    try {
+      const offers = await api.getOffers(sequelize);
+      res.status(HttpCode.OK).json(offers);
+    } catch (err) {
+      res.status(HttpCode.INTERNAL_SERVER_ERROR).send(err.message);
+      pinoLogger.error(`Error: ${err.message}`);
+    }
+  };
+  
+  const getOffer = async (req, res) => {
+    try {
+      const offer = await api.getOffer(sequelize, req.params.offerId);
+      res.status(HttpCode.OK).json(offer);
+    } catch (err) {
+      res.status(HttpCode.BAD_REQUEST).send(err.message);
+      pinoLogger.error(`Error: ${err.message}`);
+    }
+  };
+  
+  const postOffer = async (req, res) => {
+    try {
+      await api.postOffer(sequelize, req.body);
+      res.status(HttpCode.OK).send(req.body);
+    } catch (err) {
+      res.status(HttpCode.BAD_REQUEST).send(err.message);
+      pinoLogger.error(`Error: ${err.message}`);
+    }
+  };
+  
+  const putOffer = async (req, res) => {
+    try {
+      await api.putOffer(sequelize, req.body, req.params.offerId);
+      res.status(HttpCode.OK).send(req.body);
+    } catch (err) {
+      res.status(HttpCode.BAD_REQUEST).send(err.message);
+      pinoLogger.error(`Error: ${err.message}`);
+    }
+  };
+  
+  const deleteOffer = async (req, res) => {
+    try {
+      await api.deleteOffer(sequelize, req.params.offerId);
+      res.status(HttpCode.OK).send(req.body);
+    } catch (err) {
+      res.status(HttpCode.BAD_REQUEST).send(err.message);
+      pinoLogger.error(`Error: ${err.message}`);
+    }
+  };
 
-const getOffers = async (req, res) => {
-  try {
-    const fileContent = await handlers.getContent(FILE_PATH, false);
-
-    res.status(HttpCode.OK).json(fileContent);
-  } catch (err) {
-    res.status(HttpCode.INTERNAL_SERVER_ERROR).send(err.message);
-    pinoLogger.error(`Error: ${err.message}`);
-  }
-};
-
-const getOffer = async (req, res) => {
-  try {
-    const fileContent = await handlers.getContent(FILE_PATH);
-    const offer = handlers.getElementById(fileContent, req.params.offerId);
-
-    res.status(HttpCode.OK).json(offer);
-  } catch (err) {
-    res.status(HttpCode.BAD_REQUEST).send(err.message);
-    pinoLogger.error(`Error: ${err.message}`);
-  }
-};
-
-const postOffer = async (req, res) => {
-  try {
-    handlers.validateBodyRequest(req.body, OFFERS_FIELDS_COUNT);
-    const fileContent = await handlers.getContent(FILE_PATH);
-    handlers.addElementToContent(fileContent, req.body);
-    await handlers.rewriteContent(FILE_NAME, fileContent);
-
-    res.status(HttpCode.OK).send(req.body);
-  } catch (err) {
-    res.status(HttpCode.BAD_REQUEST).send(err.message);
-    pinoLogger.error(`Error: ${err.message}`);
-  }
-};
-
-const putOffer = async (req, res) => {
-  try {
-    const fileContent = await handlers.getContent(FILE_PATH);
-    const offer = handlers.getElementById(fileContent, req.params.offerId);
-    handlers.updateElementContent(offer, req.body);
-    await handlers.rewriteContent(FILE_NAME, fileContent);
-
-    res.status(HttpCode.OK).send(req.body);
-  } catch (err) {
-    res.status(HttpCode.BAD_REQUEST).send(err.message);
-    pinoLogger.error(`Error: ${err.message}`);
-  }
-};
-
-const deleteOffer = async (req, res) => {
-  try {
-    const fileContent = await handlers.getContent(FILE_PATH);
-    const offer = handlers.getElementById(fileContent, req.params.offerId);
-    handlers.removeElementFromContent(fileContent, offer);
-    await handlers.rewriteContent(FILE_NAME, fileContent);
-
-    res.status(HttpCode.OK).send(req.body);
-  } catch (err) {
-    res.status(HttpCode.BAD_REQUEST).send(err.message);
-    pinoLogger.error(`Error: ${err.message}`);
-  }
-};
-
-module.exports = {
-  getOffers,
-  getOffer,
-  postOffer,
-  putOffer,
-  deleteOffer,
+  return {
+    getOffers,
+    getOffer,
+    postOffer,
+    putOffer,
+    deleteOffer,
+  };
 };
