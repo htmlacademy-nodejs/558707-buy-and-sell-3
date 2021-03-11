@@ -2,16 +2,18 @@
 
 const {Router} = require(`express`);
 
-const {getComments,
-  deleteComment,
-  postComment} = require(`../../controllers/comments`);
+module.exports = (sequelize) => {
+  const {getComments,
+    deleteComment,
+    postComment} = require(`../../controllers/comments`)(sequelize);
+  
+  const commentsRouter = new Router();
+  
+  commentsRouter.get(`/:offerId/comments`, getComments);
+  
+  commentsRouter.post(`/:offerId/comments`, postComment);
+  
+  commentsRouter.delete(`/:offerId/comments/:commentId`, deleteComment);
 
-const commentsRouter = new Router();
-
-commentsRouter.get(`/:offerId/comments`, getComments);
-
-commentsRouter.post(`/:offerId/comments`, postComment);
-
-commentsRouter.delete(`/:offerId/comments/:commentId`, deleteComment);
-
-module.exports = commentsRouter;
+  return commentsRouter;
+};

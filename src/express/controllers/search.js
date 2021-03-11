@@ -5,7 +5,7 @@ const {API_URL, ApiRouteName} = require(`../../constants`);
 
 const getIndex = async (req, res) => {
   try {
-    const apiSearchEncodedUri = encodeURI(`${API_URL + ApiRouteName.SEARCH}?query=${req.query.search}`);
+    const apiSearchEncodedUri = encodeURI(`${API_URL + ApiRouteName.SEARCH}?query=${req.query.query}`);
     const apiResponseOffer = await axios.get(apiSearchEncodedUri);
     const offers = apiResponseOffer.data;
 

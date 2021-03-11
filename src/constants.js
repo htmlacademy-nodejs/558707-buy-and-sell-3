@@ -9,7 +9,7 @@ module.exports = {
     SEARCH: `/api/search`,
   },
   Command: {
-    GENERATE: `--generate`,
+    FILLDB: `--filldb`,
     FILL: `--fill`,
     HELP: `--help`,
     VERSION: `--version`,
